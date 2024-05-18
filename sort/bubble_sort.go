@@ -8,19 +8,15 @@ package sort
  *  * 平均：O(n^2)
  * 空间复杂度：O(1)
  * 稳定性：稳定
- * @param SortInterface data 源数据
- * @param int start 需排序起始位置
- * @param int end 需排序末尾位置
  */
-func BubbleSort(data SortInterface, start, end int) {
-	if data.Len() <= 1 {
-		return
-	}
-
-	for i := end; i >= start; i-- {
-		for j := start; j < i; j++ {
-			if data.Less(j, j+1) {
-				data.Swap(j, j+1)
+func BubbleSort(nums []int) {
+	for i := 0; i < len(nums); i++ {
+		// 从数组的开始遍历到倒数第二个元素，因为最后一个元素上一轮遍历已经确定是最大，不需要比较
+		for j := 0; j < len(nums)-i-1; j++ {
+			// 将每一对相邻元素进行比较，较大的元素到后面
+			if nums[j] > nums[j+1] {
+				//如果当前元素比下一个元素大。则交换它们的位置
+				nums[j], nums[j+1] = nums[j+1], nums[j]
 			}
 		}
 	}

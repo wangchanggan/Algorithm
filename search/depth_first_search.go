@@ -1,6 +1,7 @@
 package search
 
-var N = 250
+const N = 250
+
 var Mat [N][N]int
 var Visit [N][N]int
 

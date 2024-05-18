@@ -5,6 +5,10 @@ import (
 	"testing"
 )
 
+func init() {
+	testing.Init()
+}
+
 type IntSlice []int
 
 func (p IntSlice) Len() int                               { return len(p) }
@@ -16,33 +20,31 @@ func (p IntSlice) LessData(iData, jData interface{}) bool { return iData.(int) <
 
 func TestBubbleSort(t *testing.T) {
 	nums := IntSlice{3, 5, 1, 6, 2, 9}
-	BubbleSort(nums, 0, 5)
+	BubbleSort(nums)
 	fmt.Println(nums)
 }
 
 func TestQuickSort(t *testing.T) {
 	nums := IntSlice{3, 5, 1, 6, 2, 9}
-	QuickSort(nums, 0, 5)
+	QuickSort(nums)
 	fmt.Println(nums)
 }
 
 func TestInsertionSort(t *testing.T) {
 	nums := IntSlice{3, 5, 1, 6, 2, 9}
-	InsertionSort(nums, 0, 5)
+	InsertionSort(nums)
 	fmt.Println(nums)
 }
 
 func TestHeapSort(t *testing.T) {
-	nums := IntSlice{3, 5, 1, 6, 2, 9}
-	HeapSort(nums, 0, 5)
+	nums := []int{3, 5, 1, 6, 2, 9}
+	HeapSort(nums)
 	fmt.Println(nums)
 }
 
 func TestMergeSort(t *testing.T) {
 	nums := IntSlice{3, 5, 1, 6, 2, 9}
-	tmp := make(IntSlice, nums.Len())
-	MergeSort(nums, tmp, 0, 5)
-	fmt.Println(nums)
+	fmt.Println(MergeSort(nums))
 }
 
 func TestShellSort(t *testing.T) {
@@ -53,6 +55,6 @@ func TestShellSort(t *testing.T) {
 
 func TestSelectionSort(t *testing.T) {
 	nums := IntSlice{3, 5, 1, 6, 2, 9}
-	SelectionSort(nums, 0, 5)
+	SelectionSort(nums)
 	fmt.Println(nums)
 }
